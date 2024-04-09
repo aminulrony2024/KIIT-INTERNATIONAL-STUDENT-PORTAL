@@ -21,15 +21,15 @@ const Header = () => {
           <p className="flex flex-row text-xl">
             <FaSquarePhone className="mt-1" />{" "}
             <span className="font-medium ml-2">Call Us :</span>
-            <a className="text-black" href="tel:+91 62 9021 9676">
-              +916290219676
+            <a className="text-black hover:text-blue-700" href="tel:+91 62 9021 9676">
+              +91-6290219676
             </a>
           </p>
           <p className="flex flex-row text-xl">
             <MdEmail className="mt-1" />{" "}
             <span className="font-medium ml-2">Contact Us :</span>
             <a
-              className="text-black"
+              className="text-black hover:text-blue-700"
               href="mailto:internationaloffice@kiit.ac.in"
             >
               internationaloffice@kiit.ac.in
