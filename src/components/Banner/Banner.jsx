@@ -4,7 +4,7 @@ import img3 from "../../assets/images/image3.jpg";
 import img4 from "../../assets/images/image4.jpg";
 const Banner = () => {
     return (
-        <div className="carousel w-full h-[400px]">
+        <div className="carousel w-full h-[470px]">
       <div id="slide1" className="carousel-item relative w-full">
         <img src={img1} className="w-full" />
         <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
