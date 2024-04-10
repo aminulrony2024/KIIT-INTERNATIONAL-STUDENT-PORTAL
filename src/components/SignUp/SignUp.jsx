@@ -41,7 +41,7 @@ const SignUp = () => {
               <input
                 type="password"
                 name="password"
-                placeholder="password"
+                placeholder="password *"
                 className="input input-bordered"
                 required
                 onChange={passwordCheck}
