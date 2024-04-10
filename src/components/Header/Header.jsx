@@ -7,7 +7,7 @@ const Header = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-between p-7">
         <div className="mx-auto">
           <img
-            className="max-w-96"
+            className="max-w-80"
             src={kiit25thLogo}
             alt="kiit logo 25th silver jubilee"
           />
