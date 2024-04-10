@@ -26,7 +26,7 @@ const Login = () => {
           <div className="form-control mt-6">
             <button className="btn btn-primary bg-sky-500 bg-gradient-to-r from-sky-500 to-blue-700 border-none text-white text-xl">Log in</button>
           </div>
-          <p className="text-center">New to this portal? <Link to="/signup">Sing Up</Link></p>
+          <p className="text-center">New to this portal? <Link to="/signup">Sign Up</Link></p>
         </form>
       </div>
     );
