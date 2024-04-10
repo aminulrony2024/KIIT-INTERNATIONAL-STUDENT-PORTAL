@@ -9,7 +9,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              placeholder="Enter your email *"
+              placeholder="Enter your KIIT email *"
               className="input input-bordered"
               required
             />
