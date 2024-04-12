@@ -1,1 +1,1 @@
-Live Link : https://kiit-iro-portal.web.app/signup
+Live Link : https://kiit-iro-portal.web.app
