@@ -34,9 +34,18 @@ const SignUp = () => {
             setPassEqual(false);
         }
     }
+  //New User Sign up handler function
+  const handleSignUp = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name,email,password);
+  }
   return (
     <div className="bg-gradient-to-r from-[#62d189] to-sky-300 m-4">
-          <form className="card-body">
+          <form onSubmit={handleSignUp} className="card-body">
             <h1 className="text-center text-2xl text font-bold text-white pb-2">Sign Up Now!</h1>
             <div className="form-control">
               <input
