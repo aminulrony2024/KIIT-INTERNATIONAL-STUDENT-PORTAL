@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import { getAuth, sendEmailVerification } from "firebase/auth";
+import { app } from "../../firebase/firebase.config";
+const auth = getAuth(app);
 const SignUp = () => {
-  const { newUser, setUser, setLoading } = useContext(AuthContext);
+  const { newUser, setLoading } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [password, setPassword] = useState("");
   const [kiitMail, setKiitMail] = useState(true);
@@ -37,18 +40,23 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    newUser(name, email, password).then((result) => {
-      setUser(result.user);
-            setLoading(false);
-            form.reset();
-            Swal.fire({
-              position: "center",
-              icon: "info",
-              title: "Kindly check your KIIT mail id and confirm your identity",
-              showConfirmButton: false,
-              timer: 4500
-            });
-    });
+    newUser(name, email, password)
+      .then(() => {
+        sendEmailVerification(auth.currentUser)
+        .then(()=>{
+          Swal.fire({
+            position: "center",
+            icon: "info",
+            title: "Kindly check your KIIT mail id and confirm your identity",
+            showConfirmButton: false,
+            timer: 4500,
+          });
+        })
+        .catch(error=> console.log(error))
+        setLoading(false);
+        form.reset();
+      })
+      .catch((error) => console.log(error));
   };
   return (
     <div className="bg-gradient-to-r from-[#62d189] to-sky-300 m-4">
