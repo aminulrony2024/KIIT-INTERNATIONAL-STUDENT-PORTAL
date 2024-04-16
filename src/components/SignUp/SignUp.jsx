@@ -1,9 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
-
+import Swal from 'sweetalert2'
 const SignUp = () => {
-  const navigate = useNavigate();
   const { newUser, setUser, setLoading } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [password, setPassword] = useState("");
@@ -42,7 +41,13 @@ const SignUp = () => {
       setUser(result.user);
             setLoading(false);
             form.reset();
-            navigate(location?.state ? location.state : "/", { replace: true });
+            Swal.fire({
+              position: "center",
+              icon: "info",
+              title: "Kindly check your KIIT mail id and confirm your identity",
+              showConfirmButton: false,
+              timer: 4500
+            });
     });
   };
   return (
