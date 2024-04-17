@@ -21,7 +21,7 @@ const Login = () => {
         if (currentUser.emailVerified) {
           setUser(result.user);
           setLoading(false);
-          navigate(location?.state ? location.state : "/dashboard", {
+          navigate(location?.state ? location.state : "/home/dashboard", {
             replace: true,
           });
         }
