@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
-import { getAuth, sendEmailVerification } from "firebase/auth";
+import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
 const auth = getAuth(app);
 const SignUp = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { newUser, setLoading } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [password, setPassword] = useState("");
@@ -40,8 +42,14 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    newUser(name, email, password)
+    newUser(email, password)
       .then(() => {
+        // auth.currentUser.displayName =  name;
+        updateProfile(auth.currentUser,{
+          displayName : name
+        })
+        .then()
+        .catch()
         sendEmailVerification(auth.currentUser)
         .then(()=>{
           Swal.fire({
@@ -54,9 +62,30 @@ const SignUp = () => {
         })
         .catch(error=> console.log(error))
         setLoading(false);
-        form.reset();
+        navigate(location?.state ? location.state : "/login", { replace: true });
+
       })
-      .catch((error) => console.log(error));
+      .catch(()=>{
+        Swal.fire({
+          title: "User already exist! Send verification email?",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Send",
+          denyButtonText: `Don't send`
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            sendEmailVerification(auth.currentUser)
+            .then(()=>{
+              navigate(location?.state ? location.state : "/login", { replace: true });
+            })
+            .catch()
+            Swal.fire("Verification email sent! Kindly check your KIIT mail", "", "success");
+          } else if (result.isDenied) {
+            Swal.fire("Verification email not send", "", "info");
+          }
+        });
+      });
   };
   return (
     <div className="bg-gradient-to-r from-[#62d189] to-sky-300 m-4">
