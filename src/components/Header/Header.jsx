@@ -3,7 +3,7 @@ import { FaSquarePhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 const Header = () => {
   return (
-    <div className="bg-gradient-to-r from-white to-[#5ad18a]">
+    <div className="bg-gradient-to-r from-white to-[#5ad18a] drop-shadow-lg">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 justify-between p-7">
         <div className="mx-auto">
           <img

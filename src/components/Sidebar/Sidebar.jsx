@@ -12,7 +12,7 @@ const Sidebar = () => {
       .catch((error) => console.log(error));
   };
   const navList = (
-    <>
+    <ul>
       <li>
         <Link to="dashboard">Dashboard</Link>
       </li>
@@ -22,10 +22,10 @@ const Sidebar = () => {
       <li>
         <button onClick={handleLogOut}>Log Out</button>
       </li>
-    </>
+    </ul>
   );
     return (
-        <div className="bg-[#2C333A] text-[#eaeaea] list-none p-2.5 block h-screen p-0 w-full">
+        <div className="bg-[#2C333A] text-[#eaeaea] list-none block h-screen p-0 w-full">
             {navList}
         </div>
     );
