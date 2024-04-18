@@ -27,7 +27,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 h-28 mb-4">
+    <div className="navbar bg-base-100 h-12 mb-4 drop-shadow-lg	">
       <div className="navbar-start">
         <Link to="/">
           <img
@@ -39,17 +39,17 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div>
-          <div className="hidden lg:flex pr-4">
+          <div className="hidden lg:flex pr-4 text-base font-semibold	">
             <p>Welcome {username}</p>
           </div>
-          <ul className="menu menu-horizontal px-1 lg:hidden">
+          <ul className="menu menu-horizontal text-base	font-medium	 px-1 lg:hidden">
             <li>
               <details>
                 <summary>
-                  Welcome <br />
+                  Welcome<br />
                   {userNameFirstPart}
                 </summary>
-                <ul className="p-2">{navList}</ul>
+                <ul className="p-2 bg-[#eaeaea]">{navList}</ul>
               </details>
             </li>
           </ul>
