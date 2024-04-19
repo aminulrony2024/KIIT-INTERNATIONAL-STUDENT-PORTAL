@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { CgProfile } from "react-icons/cg";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 
 const Sidebar = () => {
-    const { logOut, setLoading, user } = useContext(AuthContext);
+  const { logOut, setLoading, user } = useContext(AuthContext);
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -12,23 +15,32 @@ const Sidebar = () => {
       .catch((error) => console.log(error));
   };
   const navList = (
-    <ul>
+    <ul className="space-y-2 divide-y ">
       <li>
-        <Link to="dashboard">Dashboard</Link>
+        <Link className="flex gap-1 mt-1 p-2" to="dashboard">
+          <TbLayoutDashboard className="mt-1 size-5" />
+          Dashboard
+        </Link>
       </li>
       <li>
-        <Link to="profile">My profile</Link>
+        <Link className="flex gap-1 p-2" to="profile">
+          <CgProfile className="mt-1 size-5" />
+          My profile
+        </Link>
       </li>
       <li>
-        <button onClick={handleLogOut}>Log Out</button>
+        <button className="flex gap-1 p-2" onClick={handleLogOut}>
+          <RiLogoutCircleRLine className="mt-1 size-5" />
+          Log Out
+        </button>
       </li>
     </ul>
   );
-    return (
-        <div className="bg-[#2C333A] text-[#eaeaea] list-none  h-screen w-[180px] p-0">
-            {navList}
-        </div>
-    );
+  return (
+    <div className="bg-[#2C333A] text-[#eaeaea] list-none  h-screen w-[180px]">
+      {navList}
+    </div>
+  );
 };
 
 export default Sidebar;

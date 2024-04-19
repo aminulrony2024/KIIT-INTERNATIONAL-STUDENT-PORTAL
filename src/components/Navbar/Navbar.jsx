@@ -5,6 +5,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { FaUserCircle } from "react-icons/fa";
 const Navbar = () => {
   const { logOut, setLoading, user } = useContext(AuthContext);
   const username = user.displayName;
@@ -52,7 +53,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <div>
           <div className="hidden lg:flex pr-4 text-base font-semibold">
-            <p>Welcome {username}</p>
+            <Link to="profile" className="flex gap-2"><FaUserCircle className="size-6" />Welcome {username}</Link>
           </div>
           <ul className="menu menu-horizontal text-base	font-medium	 px-1 lg:hidden">
             <li>
