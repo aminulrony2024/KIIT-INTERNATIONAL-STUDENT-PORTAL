@@ -27,7 +27,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 h-12 drop-shadow-lg">
+    <div className="navbar bg-base-100 h-12 drop-shadow-lg lg:fixed lg:z-10 max-w-screen-xl">
       <div className="navbar-start">
         <Link to="/">
           <img

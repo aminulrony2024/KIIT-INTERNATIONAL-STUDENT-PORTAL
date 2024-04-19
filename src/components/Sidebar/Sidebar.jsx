@@ -25,7 +25,7 @@ const Sidebar = () => {
     </ul>
   );
     return (
-        <div className="bg-[#2C333A] text-[#eaeaea] list-none block h-screen p-0 w-full">
+        <div className="bg-[#2C333A] text-[#eaeaea] list-none  h-screen w-[180px] p-0">
             {navList}
         </div>
     );
