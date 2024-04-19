@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
 import useAuth from "../../Hooks/useAuth";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const auth = getAuth(app);
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const location = useLocation();
   const navigate = useNavigate();
   const { newUser, setLoading } = useAuth();
@@ -39,48 +41,65 @@ const SignUp = () => {
   const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    newUser(email, password)
+    const Name = form.name.value;
+    const Email = form.email.value;
+    const Password = form.password.value;
+    newUser(Email, Password)
       .then(() => {
         // auth.currentUser.displayName =  name;
-        updateProfile(auth.currentUser,{
-          displayName : name
+        updateProfile(auth.currentUser, {
+          displayName: Name,
         })
-        .then()
-        .catch()
+          .then()
+          .catch();
         sendEmailVerification(auth.currentUser)
-        .then(()=>{
-          Swal.fire({
-            position: "center",
-            icon: "info",
-            title: "Kindly check your KIIT mail id and confirm your identity",
-            showConfirmButton: false,
-            timer: 4500,
-          });
-        })
-        .catch(error=> console.log(error))
-        setLoading(false);
-        navigate(location?.state ? location.state : "/login", { replace: true });
-
+          .then(() => {
+            Swal.fire({
+              position: "center",
+              icon: "info",
+              title: "Kindly check your KIIT mail id and confirm your identity",
+              showConfirmButton: false,
+              timer: 4500,
+            });
+          })
+          .catch((error) => console.log(error));
+        const userInfo = {
+          name: Name,
+          email: Email,
+        };
+        //using axiospublic to call api
+        axiosPublic.post("/users", userInfo)
+        .then((res) => {
+          if (res.data.insertedId) {
+            setLoading(false);
+            navigate(location?.state ? location.state : "/login", {
+              replace: true,
+            });
+          }
+        });
       })
-      .catch(()=>{
+      .catch(() => {
         Swal.fire({
           title: "User already exist! Send verification email?",
           showDenyButton: true,
           showCancelButton: true,
           confirmButtonText: "Send",
-          denyButtonText: `Don't send`
+          denyButtonText: `Don't send`,
         }).then((result) => {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             sendEmailVerification(auth.currentUser)
-            .then(()=>{
-              navigate(location?.state ? location.state : "/login", { replace: true });
-            })
-            .catch()
-            Swal.fire("Verification email sent! Kindly check your KIIT mail", "", "success");
+              .then(() => {
+                navigate(location?.state ? location.state : "/login", {
+                  replace: true,
+                });
+              })
+              .catch();
+            Swal.fire(
+              "Verification email sent! Kindly check your KIIT mail",
+              "",
+              "success"
+            );
           } else if (result.isDenied) {
             Swal.fire("Verification email not send", "", "info");
           }
