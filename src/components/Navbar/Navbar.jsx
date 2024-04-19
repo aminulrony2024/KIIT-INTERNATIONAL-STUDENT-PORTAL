@@ -27,13 +27,13 @@ const Navbar = () => {
       </li>
       <li>
         <Link to="profile">
-          <CgProfile className="mt-1 size-5" />
+          <CgProfile className="size-5" />
           My profile
         </Link>
       </li>
       <li>
         <button onClick={handleLogOut}>
-          <RiLogoutCircleRLine className="mt-1 size-5" />
+          <RiLogoutCircleRLine className="size-5" />
           Log Out
         </button>
       </li>
