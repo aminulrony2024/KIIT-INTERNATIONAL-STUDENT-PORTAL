@@ -39,13 +39,13 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div>
-          <div className="hidden lg:flex pr-4 text-base font-semibold	">
+          <div className="hidden lg:flex pr-4 text-base font-semibold">
             <p>Welcome {username}</p>
           </div>
           <ul className="menu menu-horizontal text-base	font-medium	 px-1 lg:hidden">
             <li>
               <details>
-                <summary>
+                <summary className="border-x-2 rounded-none">
                   Welcome<br />
                   {userNameFirstPart}
                 </summary>

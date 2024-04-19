@@ -13,7 +13,7 @@ const Home = () => {
           <div className="hidden lg:flex lg:col-span-2 lg:fixed lg:top-16">
             <Sidebar></Sidebar>
           </div>
-          <div className="col-span-12 lg:col-span-10 lg:ml-52 lg:mt-20">
+          <div className="col-span-12 lg:col-span-10 ml-3 mt-2 lg:ml-52 lg:mt-20">
             <Outlet></Outlet>
           </div>
         </div>
