@@ -1,12 +1,11 @@
 import { getAuth } from "firebase/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { app } from "../../firebase/firebase.config";
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 const auth = getAuth(app);
 const Login = () => {
-  const { signIn, setUser, setLoading } = useContext(AuthContext);
+  const { signIn, setUser, setLoading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const handleLogIn = (event) => {

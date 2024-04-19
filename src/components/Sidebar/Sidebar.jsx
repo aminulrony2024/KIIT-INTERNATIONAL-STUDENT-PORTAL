@@ -1,12 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import useAuth from "../../Hooks/useAuth";
 
 const Sidebar = () => {
-  const { logOut, setLoading, user } = useContext(AuthContext);
+  const { logOut, setLoading } = useAuth();
   const handleLogOut = () => {
     logOut()
       .then(() => {

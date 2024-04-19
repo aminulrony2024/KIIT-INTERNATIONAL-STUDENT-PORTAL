@@ -1,14 +1,14 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
 import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
+import useAuth from "../../Hooks/useAuth";
 const auth = getAuth(app);
 const SignUp = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { newUser, setLoading } = useContext(AuthContext);
+  const { newUser, setLoading } = useAuth();
   const [error, setError] = useState(false);
   const [password, setPassword] = useState("");
   const [kiitMail, setKiitMail] = useState(true);

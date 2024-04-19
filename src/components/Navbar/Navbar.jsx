@@ -53,7 +53,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <div>
           <div className="hidden lg:flex pr-4 text-base font-semibold">
-            <Link to="profile" className="flex gap-2"><FaUserCircle className="size-6" />Welcome {username}</Link>
+            <Link to="profile" className="flex gap-2"><FaUserCircle className="size-6" />{username}</Link>
           </div>
           <ul className="menu menu-horizontal text-base	font-medium	 px-1 lg:hidden">
             <li>
