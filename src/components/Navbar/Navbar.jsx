@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import kiitlogo from "../../assets/images/KIIT Silver jubilee logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import { TbLayoutDashboard } from "react-icons/tb";
+import { CgProfile } from "react-icons/cg";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 const Navbar = () => {
   const { logOut, setLoading, user } = useContext(AuthContext);
   const username = user.displayName;
@@ -16,13 +19,22 @@ const Navbar = () => {
   const navList = (
     <>
       <li>
-        <Link to="dashboard">Dashboard</Link>
+        <Link to="dashboard">
+          <TbLayoutDashboard className="size-5" />
+          Dashboard
+        </Link>
       </li>
       <li>
-        <Link to="profile">My profile</Link>
+        <Link to="profile">
+          <CgProfile className="mt-1 size-5" />
+          My profile
+        </Link>
       </li>
       <li>
-        <button onClick={handleLogOut}>Log Out</button>
+        <button onClick={handleLogOut}>
+          <RiLogoutCircleRLine className="mt-1 size-5" />
+          Log Out
+        </button>
       </li>
     </>
   );
@@ -46,10 +58,13 @@ const Navbar = () => {
             <li>
               <details>
                 <summary className="border-x-2 rounded-none">
-                  Welcome<br />
+                  Welcome
+                  <br />
                   {userNameFirstPart}
                 </summary>
-                <ul className="p-2 bg-[#eaeaea]">{navList}</ul>
+                <ul className="p-2 bg-[#eaeaea]">
+                {navList}
+                </ul>
               </details>
             </li>
           </ul>
