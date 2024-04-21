@@ -67,7 +67,7 @@ const SignUp = () => {
           name: Name,
           email: Email,
         };
-        //using axiospublic to call api
+        //using axiospublic to call create user api in mongoDB
         axiosPublic.post("/users", userInfo)
         .then((res) => {
           if (res.data.insertedId) {
