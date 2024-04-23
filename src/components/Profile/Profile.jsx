@@ -1,11 +1,15 @@
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
+import useAuth from "../../Hooks/useAuth";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Profile = () => {
-    const {user} = useContext(AuthContext);
+    const {user} = useAuth();
+    const [isAdmin,isAdminLoading] = useAdmin();
     return (
         <div>
-            <h1>I am from profile</h1>
+            <h1>{user?.displayName}</h1>
+            {
+                isAdmin && <p>You are an admin</p>
+            }
         </div>
     );
 };
