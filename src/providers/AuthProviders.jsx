@@ -37,7 +37,7 @@ const AuthProviders = ({ children }) => {
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
   const newUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);

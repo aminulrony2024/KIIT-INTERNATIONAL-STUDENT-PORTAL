@@ -7,6 +7,7 @@ const Profile = () => {
     return (
         <div>
             <h1>{user?.displayName}</h1>
+            <p>{isAdmin}</p>
             {
                 isAdmin && <p>You are an admin</p>
             }

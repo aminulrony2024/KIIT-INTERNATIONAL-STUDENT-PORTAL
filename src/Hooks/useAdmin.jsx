@@ -8,7 +8,11 @@ const useAdmin = () => {
         queryKey : [user?.email, 'isAdmin'],
         enabled : !loading,
         queryFn: async ()=>{
-            const res = await axiosSecure.get(`/users/admin/${user.email}`);
+            const res = await axiosSecure.get(`/users/admin/${user.email}`,{
+                headers : {
+                    authorization : `Bearer ${localStorage.getItem('access-token')}`
+                }
+            });
             return res.data?.admin;
         }
     })
