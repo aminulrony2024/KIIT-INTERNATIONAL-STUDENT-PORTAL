@@ -4,9 +4,11 @@ import Login from "../components/Login/Login";
 import SignUp from "../components/SignUp/SignUp";
 import ResetPassword from "../components/ResetPassword/ResetPassword";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../components/Dashboard/Dashboard";
+import AdminRoute from "./AdminRoute";
 import Home from "../Layout/Home/Home";
 import Profile from "../components/Profile/Profile";
+import AdminDashboard from "../components/AdminDashboard/AdminDashboard";
+import UserDashboard from "../components/UserDashboard/UserDashboard";
 
 export const  router = createBrowserRouter([
   {
@@ -36,8 +38,12 @@ export const  router = createBrowserRouter([
     element : <PrivateRoute><Home></Home></PrivateRoute>,
     children : [
       {
-        path : 'dashboard',
-        element : <Dashboard></Dashboard>
+        path : 'admindashboard',
+        element : <AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
+      },
+      {
+        path : 'userdashboard',
+        element : <UserDashboard></UserDashboard>
       },
       {
         path : 'profile',

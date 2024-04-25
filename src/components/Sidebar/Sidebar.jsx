@@ -3,8 +3,10 @@ import { TbLayoutDashboard } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import useAuth from "../../Hooks/useAuth";
+import useAdmin from "../../Hooks/useAdmin";
 
 const Sidebar = () => {
+  const [isAdmin] = useAdmin();
   const { logOut, setLoading } = useAuth();
   const handleLogOut = () => {
     logOut()
@@ -14,12 +16,19 @@ const Sidebar = () => {
       .catch((error) => console.log(error));
   };
   const navList = (
-    <ul className="space-y-2 divide-y ">
+    <ul className="space-y-2 divide-y">
       <li>
-        <Link className="flex gap-1 mt-1 p-2" to="dashboard">
-          <TbLayoutDashboard className="mt-1 size-5" />
-          Dashboard
-        </Link>
+        {isAdmin ? (
+          <Link className="flex gap-1 mt-1 p-2" to="admindashboard">
+            <TbLayoutDashboard className="mt-1 size-5" />
+            Dashboard
+          </Link>
+        ) : (
+          <Link className="flex gap-1 mt-1 p-2" to="userdashboard">
+            <TbLayoutDashboard className="mt-1 size-5" />
+            Dashboard
+          </Link>
+        )}
       </li>
       <li>
         <Link className="flex gap-1 p-2" to="profile">

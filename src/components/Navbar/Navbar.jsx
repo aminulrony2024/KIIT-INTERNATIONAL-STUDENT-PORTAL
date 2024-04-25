@@ -6,7 +6,9 @@ import { TbLayoutDashboard } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
+import useAdmin from "../../Hooks/useAdmin";
 const Navbar = () => {
+  const [isAdmin] = useAdmin();
   const { logOut, setLoading, user } = useContext(AuthContext);
   const username = user.displayName;
   const userNameFirstPart = username.split(" ")[0];
@@ -20,10 +22,17 @@ const Navbar = () => {
   const navList = (
     <>
       <li>
-        <Link to="dashboard">
-          <TbLayoutDashboard className="size-5" />
-          Dashboard
-        </Link>
+        {isAdmin ? (
+          <Link to="admindashboard">
+            <TbLayoutDashboard className="size-5" />
+            Dashboard
+          </Link>
+        ) : (
+          <Link to="userdashboard">
+            <TbLayoutDashboard className="size-5" />
+            Dashboard
+          </Link>
+        )}
       </li>
       <li>
         <Link to="profile">
@@ -53,7 +62,10 @@ const Navbar = () => {
       <div className="navbar-end">
         <div>
           <div className="hidden lg:flex pr-4 text-base font-semibold">
-            <Link to="profile" className="flex gap-2"><FaUserCircle className="size-6" />{username}</Link>
+            <Link to="profile" className="flex gap-2">
+              <FaUserCircle className="size-6" />
+              {username}
+            </Link>
           </div>
           <ul className="menu menu-horizontal text-base	font-medium	 px-1 lg:hidden">
             <li>
@@ -63,9 +75,7 @@ const Navbar = () => {
                   <br />
                   {userNameFirstPart}
                 </summary>
-                <ul className="p-2 bg-[#eaeaea]">
-                {navList}
-                </ul>
+                <ul className="p-2 bg-[#eaeaea]">{navList}</ul>
               </details>
             </li>
           </ul>
