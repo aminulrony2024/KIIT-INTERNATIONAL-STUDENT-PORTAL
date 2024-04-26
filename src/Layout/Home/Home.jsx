@@ -1,15 +1,12 @@
-import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProviders";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
-
 const Home = () => {
   return (
     <div>
       <Navbar></Navbar>
       <div className="container mx-auto">
-        <div className="grid"> 
+        <div className="grid">
           <div className="hidden lg:flex lg:fixed lg:top-16">
             <Sidebar></Sidebar>
           </div>
