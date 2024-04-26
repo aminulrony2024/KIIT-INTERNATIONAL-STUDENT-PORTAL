@@ -1,12 +1,20 @@
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import { useState } from "react";
 const Profile = () => {
   const { user } = useAuth();
   const [isAdmin] = useAdmin();
-  const [phone, setPhone] = useState();
+  const handleProfileUpdateUser = event =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const nationality = form.nationality.value;
+    const mobilenumber = form.mobilenumber.value;
+    const department = form.department.value;
+    const program = form.program.value;
+    const session = form.session.value;
+    console.log(name,nationality,mobilenumber,program,department,session);
+  }
   return (
     <div>
       <h1 className="text-2xl font-medium pb-2 border-b border-[#ccc] max-w-5xl">
@@ -21,7 +29,7 @@ const Profile = () => {
       ) : (
         //profile for normal user
         <div className="max-w-3xl mx-auto">
-          <form className="mt-3 mb-6 lg:mt-8 space-y-5 lg:space-y-7 lg:text-center">
+          <form onSubmit={handleProfileUpdateUser} className="mt-3 mb-6 lg:mt-8 space-y-5 lg:space-y-7 lg:text-center">
             <div>
               <label htmlFor="name" className="font-medium mr-2">
                 Name <span className="text-red-600">*</span>
