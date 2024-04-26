@@ -75,7 +75,7 @@ const Navbar = () => {
                   <br />
                   {userNameFirstPart}
                 </summary>
-                <ul className="p-2 bg-[#eaeaea]">{navList}</ul>
+                <ul className="p-2 bg-base-100">{navList}</ul>
               </details>
             </li>
           </ul>

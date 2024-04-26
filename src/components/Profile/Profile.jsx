@@ -17,9 +17,17 @@ const Profile = () => {
         </div>
       ) : (
         //profile for normal user
-        <div className="max-w-3xl mx-auto">
-          <h1>{user?.displayName}</h1>
-          <p>You are not an admin</p>
+        <div className="max-w-3xl mx-auto lg:text-center">
+          <form className="mt-3 lg:mt-8 space-y-7">
+            <div>
+            <label htmlFor="name" className="font-medium mr-2">Name <span className="text-red-600">*</span></label>
+            <input type="text" name="name" className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555]"/>
+            </div>
+            <div>
+            <label htmlFor="email" className="font-medium mr-2">Email <span className="text-red-600">*</span></label>
+            <input type="email" name="email" className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555]"/>
+            </div>
+          </form>
         </div>
       )}
     </div>
