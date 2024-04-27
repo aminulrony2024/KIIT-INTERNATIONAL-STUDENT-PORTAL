@@ -3,6 +3,7 @@ import useAdmin from "../../Hooks/useAdmin";
 import "react-phone-input-2/lib/style.css";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 const Profile = () => {
   const { user } = useAuth();
   const [isAdmin] = useAdmin();
@@ -37,6 +38,13 @@ const Profile = () => {
     axiosSecure.patch(`/user/${User._id}`, updatedUserData).then((res) => {
       console.log(res.data);
       refetch();
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `${name} 's data updated successfully!`,
+        showConfirmButton: false,
+        timer: 3500
+      });
     });
   };
   return (
