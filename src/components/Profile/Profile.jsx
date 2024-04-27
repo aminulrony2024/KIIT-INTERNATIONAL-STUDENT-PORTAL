@@ -15,7 +15,6 @@ const Profile = () => {
       return res.data;
     },
   });
-  console.log(User);
   const handleProfileUpdateUser = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -43,7 +42,7 @@ const Profile = () => {
         icon: "success",
         title: `${name} 's data updated successfully!`,
         showConfirmButton: false,
-        timer: 3500
+        timer: 3500,
       });
     });
   };
@@ -55,8 +54,33 @@ const Profile = () => {
       {isAdmin ? (
         //profile for admin
         <div className="max-w-3xl mx-auto">
-          <h1>{user?.displayName}</h1>
-          <p>You are an admin</p>
+          <form
+            onSubmit={handleProfileUpdateUser}
+            className="mt-3 mb-6 lg:mt-8 space-y-5 lg:space-y-7 lg:text-center"
+          >
+            <div>
+              <label htmlFor="name" className="font-medium mr-2">
+                Name <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="text"
+                name="name"
+                defaultValue={User.name}
+                className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555] inline"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="font-medium mr-2">
+                Email <span className="text-red-600">*</span>
+              </label>
+              <input
+                type="email"
+                name="email"
+                defaultValue={User.email}
+                className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555]"
+              />
+            </div>
+          </form>
         </div>
       ) : (
         //profile for normal user
@@ -113,13 +137,27 @@ const Profile = () => {
               <label htmlFor="text" className="font-medium mr-2">
                 Program <span className="text-red-600">*</span>
               </label>
+              <select
+                name="program"
+                defaultValue={User.program}
+                className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555] lg:mr-5"
+              >
+                <option value="B.Tech.">B.Tech.</option>
+                <option value="M.Tech.">M.Tech.</option>
+                <option value="Phd">Phd</option>
+              </select>
+            </div>
+            {/* <div>
+              <label htmlFor="text" className="font-medium mr-2">
+                Program <span className="text-red-600">*</span>
+              </label>
               <input
                 type="text"
                 name="program"
                 defaultValue={User.program}
                 className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555] lg:mr-7"
               />
-            </div>
+            </div> */}
             <div>
               <label htmlFor="text" className="font-medium mr-2">
                 Department <span className="text-red-600">*</span>
@@ -146,13 +184,29 @@ const Profile = () => {
               <label htmlFor="text" className="font-medium mr-2">
                 Session <span className="text-red-600">*</span>
               </label>
+              <select
+                name="session"
+                defaultValue={User.session}
+                className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555] lg:mr-5"
+              >
+                <option value="2020-21">2020-21</option>
+                <option value="2021-22">2021-22</option>
+                <option value="2022-23">2022-23</option>
+                <option value="2023-24">2023-24</option>
+                <option value="2024-25">2024-25</option>
+              </select>
+            </div>
+            {/* <div>
+              <label htmlFor="text" className="font-medium mr-2">
+                Session <span className="text-red-600">*</span>
+              </label>
               <input
                 type="text"
                 name="session"
                 defaultValue={User.session}
                 className="w-full lg:w-3/5 h-10 py-1.5 px-3 border border-solid border-[#ccc] rounded text-[#555] lg:mr-5"
               />
-            </div>
+            </div> */}
             <input
               type="submit"
               value="Update"
