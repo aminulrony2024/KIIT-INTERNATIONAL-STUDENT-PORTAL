@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
 const UploadDocument = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -9,6 +10,7 @@ const UploadDocument = () => {
   const [visa, setVisa] = useState("");
   const submitData = async (e) => {
     e.preventDefault();
+    const form = e.target;
     const formData = new FormData();
     formData.append("passport", passport);
     formData.append("visa", visa);
@@ -19,15 +21,26 @@ const UploadDocument = () => {
       {
         headers: { "Content-Type": "multipart/form-data" },
       }
-    );
+    )
     console.log(result);
+    if(result?.data.modifiedCount > 0)
+    {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title:  "Your document submitted successfully!",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          form.reset();
+    }
   };
   return (
     <div>
       <h1 className="text-2xl font-medium pb-2 border-b border-[#ccc] max-w-5xl text-[#D11F51]">Upload your document</h1>
       <form className="text-[#333] text-lg	font-normal space-y-3 mt-5" onSubmit={submitData}>
       <div className="flex gap-2">
-        <label htmlFor="">Enter your photo : <span className="text-red-600">*</span></label> <br />
+        <label htmlFor="">1. Enter your photo : <span className="text-red-600">*</span></label> <br />
         <input
         className="text-base font-thin"
           name="image"
@@ -38,7 +51,7 @@ const UploadDocument = () => {
         />
         </div>
         <div className="flex gap-2">
-        <label htmlFor="">Enter your passport : <span className="text-red-600">*</span></label> <br />
+        <label htmlFor="">2. Enter your passport : <span className="text-red-600">*</span></label> <br />
         <input className="text-base font-thin"
           type="file"
           accept="application/pdf"
@@ -47,7 +60,7 @@ const UploadDocument = () => {
         />
         </div>
         <div className="flex gap-2 mb-4">
-        <label htmlFor="">Enter your Indian visa : <span className="text-red-600">*</span></label> <br />
+        <label htmlFor="">3. Enter your Indian visa : <span className="text-red-600">*</span></label> <br />
         <input
         className="text-base font-thin"
           type="file"
