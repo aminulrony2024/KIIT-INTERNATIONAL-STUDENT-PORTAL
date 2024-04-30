@@ -9,6 +9,10 @@ import Home from "../Layout/Home/Home";
 import Profile from "../components/Profile/Profile";
 import AdminDashboard from "../components/AdminDashboard/AdminDashboard";
 import UserDashboard from "../components/UserDashboard/UserDashboard";
+import UserDocuments from "../components/UserDocuments/UserDocuments";
+import UploadDocument from "../components/UploadDocument/UploadDocument";
+import ViewDocument from "../components/ViewDocument/ViewDocument";
+import UpdateDocument from "../components/UpdateDocument/UpdateDocument";
 
 export const  router = createBrowserRouter([
   {
@@ -48,6 +52,24 @@ export const  router = createBrowserRouter([
       {
         path : 'profile',
         element : <Profile></Profile>
+      },
+      {
+        path : 'userdocuments',
+        element : <UserDocuments></UserDocuments>,
+        children : [
+          {
+            path : 'upload',
+            element : <UploadDocument></UploadDocument>
+          },
+          {
+            path : 'view',
+            element : <ViewDocument></ViewDocument>
+          },
+          {
+            path : 'update',
+            element : <UpdateDocument></UpdateDocument>
+          }
+        ]
       }
     ]
   }

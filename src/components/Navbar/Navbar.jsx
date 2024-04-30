@@ -7,6 +7,7 @@ import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
 import useAdmin from "../../Hooks/useAdmin";
+import { IoDocumentsSharp } from "react-icons/io5";
 const Navbar = () => {
   const [isAdmin] = useAdmin();
   const { logOut, setLoading, user } = useContext(AuthContext);
@@ -40,6 +41,14 @@ const Navbar = () => {
           My profile
         </Link>
       </li>
+      {!isAdmin && (
+        <li>
+          <Link to="userdocuments">
+            <IoDocumentsSharp className="size-5" />
+            My Documents
+          </Link>
+        </li>
+      )}
       <li>
         <button onClick={handleLogOut}>
           <RiLogoutCircleRLine className="size-5" />

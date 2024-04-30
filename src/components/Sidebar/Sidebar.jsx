@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
+import { IoDocumentsSharp } from "react-icons/io5";
 
 const Sidebar = () => {
   const [isAdmin] = useAdmin();
@@ -36,6 +37,14 @@ const Sidebar = () => {
           My profile
         </Link>
       </li>
+      {!isAdmin && (
+        <li>
+          <Link className="flex gap-1 p-2" to="userdocuments">
+            <IoDocumentsSharp className="mt-1 size-5" />
+            My Documents
+          </Link>
+        </li>
+      )}
       <li>
         <button className="flex gap-1 p-2" onClick={handleLogOut}>
           <RiLogoutCircleRLine className="mt-1 size-5" />
