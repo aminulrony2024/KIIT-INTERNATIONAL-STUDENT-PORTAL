@@ -1,8 +1,9 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Navigate, Outlet } from "react-router-dom";
 import "./UserDocuments.css";
 const UserDocuments = () => {
   return (
     <div>
+      <Navigate to="/home/userdocuments/view"></Navigate>
       <h1 className="text-2xl font-medium pb-2 border-b border-[#ccc] max-w-5xl">
         My Documents
       </h1>
