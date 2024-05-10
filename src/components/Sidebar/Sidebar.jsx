@@ -6,6 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
 import { IoDocumentsSharp } from "react-icons/io5";
 import { FaQuestionCircle } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa6";
 
 const Sidebar = () => {
   const [isAdmin] = useAdmin();
@@ -43,6 +44,14 @@ const Sidebar = () => {
           <Link className="flex gap-1 p-2" to="userdocuments">
             <IoDocumentsSharp className="mt-1 size-5" />
             My Documents
+          </Link>
+        </li>
+      )}
+      {isAdmin && (
+        <li>
+          <Link className="flex gap-1 p-2" to={`user/id`}>
+            <FaUsers className="mt-1 size-5" />
+            Users
           </Link>
         </li>
       )}

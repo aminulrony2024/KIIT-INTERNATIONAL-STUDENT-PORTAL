@@ -14,6 +14,7 @@ import UploadDocument from "../components/UploadDocument/UploadDocument";
 import ViewDocument from "../components/ViewDocument/ViewDocument";
 import UpdateDocument from "../components/UpdateDocument/UpdateDocument";
 import Faq from "../components/Faq/Faq";
+import AllUsers from "../components/AllUsers/AllUsers";
 
 export const  router = createBrowserRouter([
   {
@@ -75,6 +76,10 @@ export const  router = createBrowserRouter([
       {
         path : 'faq',
         element : <Faq></Faq>
+      },
+      {
+        path : 'user/:id',
+        element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
       }
     ]
   }
