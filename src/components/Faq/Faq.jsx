@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 import faq from "../../assets/images/FAQ.png";
 const Faq = () => {
   return (
     <div className="lg:py-8 lg:mx-auto">
       <div>
+        <Helmet>
+          <title>KIIT IRO | FAQ</title>
+        </Helmet>
         <div className="w-10/12 mx-auto">
           <h3 className="font-bold text-4xl text-center p-8">Questions?</h3>
           <p className="text-center text-base font-medium text-secondary-color pb-8">
