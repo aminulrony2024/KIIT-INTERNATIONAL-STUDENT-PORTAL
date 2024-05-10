@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { TbLayoutDashboard } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
-import { FaUserCircle } from "react-icons/fa";
+import { FaQuestionCircle, FaUserCircle } from "react-icons/fa";
 import useAdmin from "../../Hooks/useAdmin";
 import { IoDocumentsSharp } from "react-icons/io5";
 const Navbar = () => {
@@ -46,6 +46,14 @@ const Navbar = () => {
           <Link to="userdocuments">
             <IoDocumentsSharp className="size-5" />
             My Documents
+          </Link>
+        </li>
+      )}
+      {!isAdmin && (
+        <li>
+          <Link to="faq">
+            <FaQuestionCircle className="size-5" />
+            FAQ
           </Link>
         </li>
       )}

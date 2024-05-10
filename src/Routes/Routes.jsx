@@ -13,6 +13,7 @@ import UserDocuments from "../components/UserDocuments/UserDocuments";
 import UploadDocument from "../components/UploadDocument/UploadDocument";
 import ViewDocument from "../components/ViewDocument/ViewDocument";
 import UpdateDocument from "../components/UpdateDocument/UpdateDocument";
+import Faq from "../components/Faq/Faq";
 
 export const  router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const  router = createBrowserRouter([
             element : <UpdateDocument></UpdateDocument>
           }
         ]
+      },
+      {
+        path : 'faq',
+        element : <Faq></Faq>
       }
     ]
   }

@@ -5,6 +5,7 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
 import { IoDocumentsSharp } from "react-icons/io5";
+import { FaQuestionCircle } from "react-icons/fa";
 
 const Sidebar = () => {
   const [isAdmin] = useAdmin();
@@ -42,6 +43,14 @@ const Sidebar = () => {
           <Link className="flex gap-1 p-2" to="userdocuments">
             <IoDocumentsSharp className="mt-1 size-5" />
             My Documents
+          </Link>
+        </li>
+      )}
+      {!isAdmin && (
+        <li>
+          <Link className="flex gap-1 p-2" to="faq">
+            <FaQuestionCircle className="mt-1 size-5" />
+            FAQ
           </Link>
         </li>
       )}
