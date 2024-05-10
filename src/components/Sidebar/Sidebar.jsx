@@ -49,7 +49,7 @@ const Sidebar = () => {
       )}
       {isAdmin && (
         <li>
-          <Link className="flex gap-1 p-2" to={`user/id`}>
+          <Link className="flex gap-1 p-2" to="users">
             <FaUsers className="mt-1 size-5" />
             Users
           </Link>

@@ -52,7 +52,7 @@ const Navbar = () => {
       )}
       {isAdmin && (
         <li>
-          <Link to="user/id">
+          <Link to="users">
             <FaUsers className="size-5" />
             Users
           </Link>

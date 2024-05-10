@@ -66,10 +66,10 @@ const SignUp = () => {
         const userInfo = {
           name: Name,
           email: Email,
+          role: "user"
         };
         //using axiospublic to call create user api in mongoDB
-        axiosPublic.post("/users", userInfo)
-        .then((res) => {
+        axiosPublic.post("/users", userInfo).then((res) => {
           if (res.data.insertedId) {
             setLoading(false);
             navigate(location?.state ? location.state : "/login", {
