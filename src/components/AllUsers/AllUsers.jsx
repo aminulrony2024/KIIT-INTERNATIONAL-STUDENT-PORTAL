@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: users, refetch } = useQuery({
+  const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
