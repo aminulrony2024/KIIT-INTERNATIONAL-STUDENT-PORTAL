@@ -15,6 +15,7 @@ import ViewDocument from "../components/ViewDocument/ViewDocument";
 import UpdateDocument from "../components/UpdateDocument/UpdateDocument";
 import Faq from "../components/Faq/Faq";
 import AllUsers from "../components/AllUsers/AllUsers";
+import User from "../components/User/User";
 
 export const  router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ export const  router = createBrowserRouter([
       {
         path : 'users',
         element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path : 'user/:id',
+        element : <AdminRoute><User></User></AdminRoute>
       }
     ]
   }
