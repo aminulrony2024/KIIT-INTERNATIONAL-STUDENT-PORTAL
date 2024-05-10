@@ -1,9 +1,9 @@
 import useAuth from "../../Hooks/useAuth";
 import useAdmin from "../../Hooks/useAdmin";
-import "react-phone-input-2/lib/style.css";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const Profile = () => {
   const { user } = useAuth();
   const [isAdmin] = useAdmin();
@@ -48,6 +48,9 @@ const Profile = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>KIIT IRO | Profile</title>
+      </Helmet>
       <h1 className="text-2xl font-medium pb-2 border-b border-[#ccc] max-w-5xl">
         My Profile
       </h1>

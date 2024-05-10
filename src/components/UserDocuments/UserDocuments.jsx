@@ -1,9 +1,13 @@
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import "./UserDocuments.css";
+import { Helmet } from "react-helmet-async";
 const UserDocuments = () => {
   return (
     <div>
       <Navigate to="/home/userdocuments/view"></Navigate>
+      <Helmet>
+        <title>KIIT IRO | Documents</title>
+      </Helmet>
       <h1 className="text-2xl font-medium pb-2 border-b border-[#ccc] max-w-5xl">
         My Documents
       </h1>
