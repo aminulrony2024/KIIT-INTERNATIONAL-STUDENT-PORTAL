@@ -22,6 +22,20 @@ The KIIT International Student Portal is a platform designed to streamline the v
   <img width="120" src="https://firebase.google.com/static/downloads/brand-guidelines/SVG/logo-standard.svg">
 </p>
 
+## View of the Web Portal
+
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/homepage.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/singup%20page.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/reset%20password%20page.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/normal%20user%20dashboard.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/user%20document%20section.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/user%20upload%20document%20section.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/faq%20section.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/admin%20homepage.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/total%20user%20pages.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/student's%20detail%20from%20admin%20side.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/showing%20documents.PNG)
+![Alt Text](https://github.com/aminulrony2024/KIIT-INTERNATIONAL-STUDENT-PORTAL/blob/main/src/assets/portal%20view/delete%20user.PNG)
 
 
 ## License
