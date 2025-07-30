@@ -76,7 +76,7 @@ const AllUsers = () => {
         <table className="table table-zebra w-full">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-base">
               <th></th>
               <th>Name</th>
               <th>Email</th>
@@ -98,7 +98,7 @@ const AllUsers = () => {
                   ) : (
                     <button
                       onClick={() => handleMakeAdmin(user)}
-                      className="btn btn-lg bg-green-600 hover:bg-[#75b740]"
+                      className="btn btn-xl bg-green-600 hover:bg-[#75b740]"
                     >
                       <FaUsers
                         className="text-white 
